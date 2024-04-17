@@ -28,29 +28,29 @@ print(dataset.describe())
 print(dataset.isnull().sum())
             ##Exploratory data Analysis
             ##Correlation
-#print(dataset.corr())
-#sns.pairplot(dataset)
-# plt.show()
+print(dataset.corr())
+sns.pairplot(dataset)
+plt.show()
 plt.scatter(dataset['MedInc'],dataset['Price'])
 plt.xlabel("Medical Insurance")
 plt.ylabel("Price")
-#plt.show()
+plt.show()
 
 plt.scatter(dataset['Population'],dataset['Price'])
 plt.xlabel("Population")
 plt.ylabel("Price")
-#plt.show()
+plt.show()
 
 
 
 sns.regplot(x="Population",y="Price",data=dataset)
-#plt.show()
+plt.show()
 sns.regplot(x="AveRooms",y="Price",data=dataset)
-#plt.show()
+plt.show()
 sns.regplot(x="AveBedrms",y="Price",data=dataset)
-#plt.show()
+plt.show()
 sns.regplot(x="HouseAge",y="Price",data=dataset)
-#plt.show()
+plt.show()
 
 #plt.show()
 
@@ -73,8 +73,11 @@ X_train=scaler.fit_transform(X_train)
 X_test=scaler.transform(X_test)
 
 
-# print(X_test)
-# print(X_train)
+print(X_test)
+print(X_train)
+
+import pickle
+pickle.dump(scaler,open('scaling.pkl','wb'))
 
 from sklearn.linear_model import LinearRegression
 
